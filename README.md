@@ -45,4 +45,4 @@ python bot.py
    - Users need the "Translator" role (or whatever you set in .env) to use translation features
 
 ## Supported Languages
-Currently: English, German, French, Spanish, Italian, Dutch, Polish, Portuguese, Russian, Japanese, and Chinese.
+[DeepL Supported Languages](https://developers.deepl.com/docs/zh/resources/supported-languages?utm_term=&utm_campaign=SE%7CPMAX%7CC%7CEnglish&utm_source=google&utm_medium=paid&hsa_acc=1083354268&hsa_cam=21579551002&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=CjwKCAiAtYy9BhBcEiwANWQQL4e7Q8ia5O9_ikiz19WoX0gpPJsb4yVIept0hp78qFxD4xnCvf_dvBoCWaMQAvD_BwE)
