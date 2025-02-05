@@ -6,6 +6,7 @@ from discord import app_commands
 from discord.ui import Select, View
 from dotenv import load_dotenv
 import deepl
+import asyncio
 
 # ////////////////////////////////////////////////////////
 # TBOT IS MADE SPECIFICALLY FOR THE WORLD DISCORD SERVER.
@@ -32,6 +33,7 @@ LANGUAGES = {
     '🇪🇸 Spanish': 'ES'
 }
 
+# STORE LANGUAGE PREFERENCES
 class UserPreferences:
     def __init__(self):
         self.file_path = Path('user_preferences.json')
@@ -153,7 +155,7 @@ class TranslatorBot(discord.Client):
                 ephemeral=True
             )
 
-        # Register the auto-translation context menu command
+        # REGISTER THE AUTO-TRANSLATION CONTEXT MENU COMMAND
         @self.tree.context_menu(name="Auto-Translate")
         async def auto_translate_message(interaction: discord.Interaction, message: discord.Message):
             if not any(role.name == TRANSLATOR_ROLE for role in interaction.user.roles):
@@ -183,7 +185,7 @@ class TranslatorBot(discord.Client):
                     ephemeral=True
                 )
 
-        # Register the set preferred language command
+        # REGISTER THE SET PREFERRED LANGUAGE COMMAND
         @self.tree.command(name="set-language", description="Set your preferred language for auto-translation")
         async def set_preferred_language(interaction: discord.Interaction):
             if not any(role.name == TRANSLATOR_ROLE for role in interaction.user.roles):
@@ -204,14 +206,25 @@ class TranslatorBot(discord.Client):
         await self.tree.sync()
 
     async def on_ready(self):
-        print(f'{self.user} INITIATED (ID: {self.user.id})')
-        print('beep boop')
+        print(f'{self.user} AUTHORIZED (ID: {self.user.id})')
+        await asyncio.sleep(0)
+        print('\033[91m....15%\033[0m')  
+        await asyncio.sleep(1)
+        print('\033[93m....30%\033[0m')  
+        await asyncio.sleep(0)
+        print('\033[38;5;208m....60%\033[0m')  
+        await asyncio.sleep(1)
+        print('\033[92m....90%\033[0m')  
+        await asyncio.sleep(0)
+        print('\033[32m....100%\033[0m')  
+        await asyncio.sleep(1)
+        print('\033[32;1mBOT ONLINE\033[0m')  
 
 def main():
-    # CREATE BOT INSTANCE
+    # CREATE INSTANCE
     client = TranslatorBot()
     
-    # KICK IT OFF
+    # RUN OPERATION
     client.run(DISCORD_TOKEN)
 
 if __name__ == "__main__":
